@@ -1,2 +1,2 @@
-# OdinProject-Library
-The Odin Project - Library
+### Acknowledgements
+- Modal reference https://www.w3schools.com/howto/howto_css_modals.asp
