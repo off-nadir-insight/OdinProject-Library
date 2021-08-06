@@ -5,6 +5,7 @@ const btnOpenAddBookModal = document.getElementById("btn-add-book");
 const formNewBook = document.getElementById("form--new-book");
 const modalAddBook = document.getElementById("modal--add-book");
 const closeModal = document.getElementById("close-modal");
+const submitStatusMesg = document.getElementById("status-message");
 
 let myLibraryArr = [
   {
@@ -47,13 +48,27 @@ window.addEventListener("click", e => {
 
 formNewBook.addEventListener("submit", e => {
   e.preventDefault();
+  // let targets = e.target.querySelectorAll('[type="text"]')
+  // console.log(targets)
   console.log(`
     title: ${e.target.title.value}
     author: ${e.target.author.value}
     pages: ${e.target.pages.value}
     `)
   addBookToLibrary(e.target.title.value, e.target.author.value, e.target.pages.value)
+  submitStatusMesg.textContent = "Book submitted";
+  setTimeout(() => {
+    submitStatusMesg.textContent = "";
+  }, 1000);
+  // clearAddBookForm();
 })
+
+function clearAddBookForm() {
+  const fieldsToClear = formNewBook.querySelectorAll('[type="text"]')
+  fieldsToClear.forEach(field => {
+    field.value = "";
+  })
+}
 
 // ----- end add-book modal -----
 

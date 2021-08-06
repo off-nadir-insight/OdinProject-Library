@@ -13,9 +13,19 @@
       <div class="modal-content">
         <span id="close-modal" class="top-right">x</span>
         <form id="form--new-book">
-          <input type="text" name="title" id="title" placeholder="New book title">
-          <input type="text" name="author" id="author" placeholder="New book author">
-          <input type="text" name="pages" id="pages" placeholder="Number of pages">
+          <label for="title">
+            Title:
+            <input type="text" name="title" id="title" placeholder="New book title" required>
+          </label>
+          <label for="title">
+            Author:
+            <input type="text" name="author" id="author" placeholder="New book author" required>
+          </label>
+          <label for="title">
+            No of pages:
+            <input type="text" name="pages" id="pages" placeholder="Number of pages" required>
+          </label>
+          <p id="status-message"></p>
           <button type="submit">Submit new book</button>
         </form>
       </div>
