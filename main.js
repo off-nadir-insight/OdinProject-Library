@@ -47,7 +47,12 @@ window.addEventListener("click", e => {
 
 formNewBook.addEventListener("submit", e => {
   e.preventDefault();
-  console.log(e)
+  console.log(`
+    title: ${e.target.title.value}
+    author: ${e.target.author.value}
+    pages: ${e.target.pages.value}
+    `)
+  addBookToLibrary(e.target.title.value, e.target.author.value, e.target.pages.value)
 })
 
 // ----- end add-book modal -----
@@ -62,7 +67,8 @@ function Book(title, author, pages) {
 function addBookToLibrary(title, author, pages) {
   let newBook = new Book(title, author, pages)
   myLibraryArr.push(newBook);
-  return newBook;
+  libraryEle.innerHTML = "";
+  displayLibrary(myLibraryArr, libraryEle);
 }
 
 displayLibrary(myLibraryArr, libraryEle)

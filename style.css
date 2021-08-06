@@ -54,7 +54,6 @@ button:focus {
 #root {
   position: relative;
   height: 100vh;
-  border: 1px solid purple;
 }
 
 .modal {
