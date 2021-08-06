@@ -6,8 +6,8 @@
   - [x] return success message
   -  ~~close modal on submit?~~
   - [ ] address alignment on "new book" form
-- [ ] delete cards with a button on the respective card
-- [ ] max card width
+- [x] delete cards with a button on the respective card
+- [x] max card width
 - [ ] add new field for "read" status on a book
   - [ ] add ability to toggle and update state
 - [ ] accessibility for form placeholder text?

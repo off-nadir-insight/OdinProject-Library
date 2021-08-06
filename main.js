@@ -6,27 +6,32 @@ const formNewBook = document.getElementById("form--new-book");
 const modalAddBook = document.getElementById("modal--add-book");
 const closeModal = document.getElementById("close-modal");
 const submitStatusMesg = document.getElementById("status-message");
+const btnIsRead = document.getElementById("btnIsRead");
 
 let myLibraryArr = [
   {
     title: "book1",
     author: "author1",
     pages: 1234,
+    isRead: false,
   },
   {
     title: "book2",
     author: "author2",
     pages: 2345,
+    isRead: true,
   },
   {
-    title: "book3",
-    author: "author3",
-    pages: 3457,
+    title: "book3book3book3book3book3book3",
+    author: "author3author3 author3author3author3author3",
+    pages: 3457.8,
+    isRead: false,
   },
   {
     title: "book4",
     author: "author4",
     pages: 6789,
+    isRead: false,
   }
 ];
 
@@ -66,14 +71,15 @@ function clearAddBookForm() {
 // ----- end add-book modal -----
 
 
-function Book(title, author, pages) {
+function Book(title, author, pages, isRead) {
   this.title = title;
   this.author = author;
   this.pages = pages;
+  this.isRead = isRead;
 }
 
-function addBookToLibrary(title, author, pages) {
-  let newBook = new Book(title, author, pages)
+function addBookToLibrary(title, author, pages, isRead) {
+  let newBook = new Book(title, author, pages, isRead)
   myLibraryArr.push(newBook);
   displayLibrary();
 }
@@ -87,6 +93,7 @@ function generateCard(idx, book) {
     <p>by</p>
     <p>${book.author}</p>
     <p>${book.pages} pages</p>
+    <p><span class="btnIsRead">${ book.isRead ? "☑️ read" : "🔲 not read" }</span></p>
     <span class="deleteBook">x</span>
   `;
   libraryEle.appendChild(newCard);
@@ -102,6 +109,15 @@ function displayLibrary() {
   btnDeleteBook.forEach(btn => {
     btn.addEventListener("click", e => {
       myLibraryArr.splice(e.target.parentElement.dataset.index, 1);
+      displayLibrary();
+    })
+  })
+
+  const btnIsRead = document.querySelectorAll(`.btnIsRead`);
+  btnIsRead.forEach(btn => {
+    btn.addEventListener("click", e => {
+      const bookNum = e.target.parentElement.parentElement.dataset.index;
+      myLibraryArr[bookNum].isRead = !myLibraryArr[bookNum].isRead;
       displayLibrary();
     })
   })
