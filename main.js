@@ -1,4 +1,4 @@
-import { displayLibrary } from "./js/display.js"
+// import { displayLibrary } from "./js/display.js"
 
 const libraryEle = document.getElementById("library");
 const btnOpenAddBookModal = document.getElementById("btn-add-book");
@@ -48,19 +48,12 @@ window.addEventListener("click", e => {
 
 formNewBook.addEventListener("submit", e => {
   e.preventDefault();
-  // let targets = e.target.querySelectorAll('[type="text"]')
-  // console.log(targets)
-  console.log(`
-    title: ${e.target.title.value}
-    author: ${e.target.author.value}
-    pages: ${e.target.pages.value}
-    `)
   addBookToLibrary(e.target.title.value, e.target.author.value, e.target.pages.value)
   submitStatusMesg.textContent = "Book submitted";
   setTimeout(() => {
     submitStatusMesg.textContent = "";
   }, 1000);
-  // clearAddBookForm();
+  // clearAddBookForm(); // ** disabled for testing **
 })
 
 function clearAddBookForm() {
@@ -82,8 +75,37 @@ function Book(title, author, pages) {
 function addBookToLibrary(title, author, pages) {
   let newBook = new Book(title, author, pages)
   myLibraryArr.push(newBook);
-  libraryEle.innerHTML = "";
-  displayLibrary(myLibraryArr, libraryEle);
+  displayLibrary();
 }
 
-displayLibrary(myLibraryArr, libraryEle)
+function generateCard(idx, book) {
+  const newCard = document.createElement("div");
+  newCard.classList.add("card");
+  newCard.dataset.index = idx;
+  newCard.innerHTML = `
+    <h2>${book.title}</h2>
+    <p>by</p>
+    <p>${book.author}</p>
+    <p>${book.pages} pages</p>
+    <span class="deleteBook">x</span>
+  `;
+  libraryEle.appendChild(newCard);
+}
+
+function displayLibrary() {
+  libraryEle.innerHTML = "";
+  myLibraryArr.forEach((book, idx) => {
+    generateCard(idx, book);
+  })
+
+  const btnDeleteBook = document.querySelectorAll(`.deleteBook`);
+  btnDeleteBook.forEach(btn => {
+    btn.addEventListener("click", e => {
+      myLibraryArr.splice(e.target.parentElement.dataset.index, 1);
+      displayLibrary();
+    })
+  })
+}
+
+
+displayLibrary();
