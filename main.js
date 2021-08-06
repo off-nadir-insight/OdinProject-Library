@@ -1,11 +1,12 @@
-const root = document.getElementById("root");
-const library = document.getElementById("library");
-const btnAddBook = document.getElementById("btn-add-book");
+import { displayLibrary } from "./js/display.js"
+
+const libraryEle = document.getElementById("library");
+const btnOpenAddBookModal = document.getElementById("btn-add-book");
 const formNewBook = document.getElementById("form--new-book");
 const modalAddBook = document.getElementById("modal--add-book");
 const closeModal = document.getElementById("close-modal");
 
-let myLibrary = [
+let myLibraryArr = [
   {
     title: "book1",
     author: "author1",
@@ -30,7 +31,7 @@ let myLibrary = [
 
 // ----- start add-book modal -----
 
-btnAddBook.addEventListener("click", e => {
+btnOpenAddBookModal.addEventListener("click", e => {
   modalAddBook.style.display = "block";
 })
 
@@ -60,26 +61,8 @@ function Book(title, author, pages) {
 
 function addBookToLibrary(title, author, pages) {
   let newBook = new Book(title, author, pages)
-  myLibrary.push(newBook);
+  myLibraryArr.push(newBook);
   return newBook;
 }
 
-function displayLibrary() {
-  myLibrary.forEach(book => {
-    generateCard(book);
-  }
-)}
-
-function generateCard(book) {
-  const newCard = document.createElement("div");
-  newCard.classList.add("card");
-  newCard.innerHTML = `
-    <h2>${book.title}</h2>
-    <p>by</p>
-    <p>${book.author}</p>
-    <p>${book.pages} pages</p>
-  `;
-  library.appendChild(newCard);
-}
-
-displayLibrary()
+displayLibrary(myLibraryArr, libraryEle)
