@@ -1,17 +1,19 @@
 ## Tasks
 - [x] Use form values to add new book to array
-- [ ] render "new book" modal
+- [x] render "new book" modal
   - [x] set render method to clear HTML prior to adding additional cards
   - [x] clear form fields
   - [x] return success message
   -  ~~close modal on submit?~~
-  - [ ] address alignment on "new book" form
+  - [x] address alignment on "new book" form
 - [x] delete cards with a button on the respective card
 - [x] max card width
-- [ ] add new field for "read" status on a book
-  - [ ] add ability to toggle and update state
-- [ ] accessibility for form placeholder text?
-  - [ ] updates placeholder text to labels in form
+- [x] add new field for "read" status on a book
+  - [x] add ability to toggle and update state
+- [x] accessibility for form placeholder text?
+  - [x] update placeholder text to labels in form
+- [ ] Implement localStorage
 
 ### Acknowledgements
-- Modal reference https://www.w3schools.com/howto/howto_css_modals.asp
+- Modal reference https://www.w3schools.com/howto/howto_css_modals.asp 
+- Local Storage https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API/Using_the_Web_Storage_API 

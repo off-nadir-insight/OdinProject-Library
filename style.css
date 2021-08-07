@@ -114,13 +114,16 @@ button:focus {
 }
 
 #form--new-book > label {
-  width: 90%;
-  /* align-self: flex-start; */
-  /* text-align: left; */
+  width: 85%;
+  display: flex;
+  flex-direction: row;
+  font-weight: 600;
 }
 
 #form--new-book input[type="text"] {
   width: 60%;
+  flex-grow: 1;
+  margin-left: 1em;
 }
 
 #form--new-book > button {

@@ -22,8 +22,8 @@ let myLibraryArr = [
     isRead: true,
   },
   {
-    title: "book3book3book3book3book3book3",
-    author: "author3author3 author3author3author3author3",
+    title: "Book Titles with Many Words and Extend Far Too Long",
+    author: "Long Author Name Sr, the III",
     pages: 3457.8,
     isRead: false,
   },
@@ -122,6 +122,5 @@ function displayLibrary() {
     })
   })
 }
-
 
 displayLibrary();
