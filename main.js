@@ -1,4 +1,5 @@
 // import { displayLibrary } from "./js/display.js"
+import storageAvailable from "./js/localStorage.js"
 
 const libraryEle = document.getElementById("library");
 const btnOpenAddBookModal = document.getElementById("btn-add-book");
@@ -53,7 +54,8 @@ window.addEventListener("click", e => {
 
 formNewBook.addEventListener("submit", e => {
   e.preventDefault();
-  addBookToLibrary(e.target.title.value, e.target.author.value, e.target.pages.value)
+  const { title, author, pages, isRead } = e.target;
+  addBookToLibrary(e.target.title.value, e.target.author.value, e.target.pages.value, e.target.isRead.checked)
   submitStatusMesg.textContent = "Book submitted";
   setTimeout(() => {
     submitStatusMesg.textContent = "";
@@ -79,7 +81,8 @@ function Book(title, author, pages, isRead) {
 }
 
 function addBookToLibrary(title, author, pages, isRead) {
-  let newBook = new Book(title, author, pages, isRead)
+  let newBook = new Book(title, author, pages, isRead);
+  console.log(newBook)
   myLibraryArr.push(newBook);
   displayLibrary();
 }
@@ -123,4 +126,12 @@ function displayLibrary() {
   })
 }
 
+if (storageAvailable('localStorage')) {
+  // Yippee! We can use localStorage awesomeness
+  console.log('seems like it works')
+}
+else {
+  // Too bad, no localStorage for us
+  console.log('garbage')
+}
 displayLibrary();

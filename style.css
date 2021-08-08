@@ -120,10 +120,14 @@ button:focus {
   font-weight: 600;
 }
 
+#form--new-book input[type="text"],
+#form--new-book input[type="checkbox"] {
+  margin-left: 1em;
+}
+
 #form--new-book input[type="text"] {
   width: 60%;
   flex-grow: 1;
-  margin-left: 1em;
 }
 
 #form--new-book > button {
