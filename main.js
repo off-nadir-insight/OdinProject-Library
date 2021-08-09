@@ -92,14 +92,41 @@ function generateCard(idx, book) {
   const newCard = document.createElement("div");
   newCard.classList.add("card");
   newCard.dataset.index = idx;
-  newCard.innerHTML = `
-    <h2>${book.title}</h2>
-    <p>by</p>
-    <p>${book.author}</p>
-    <p>${book.pages} pages</p>
-    <p><span class="btnIsRead">${ book.isRead ? "☑️ read" : "🔲 not read" }</span></p>
-    <span class="deleteBook">x</span>
-  `;
+  // newCard.innerHTML = `
+  //   <h2>${book.title}</h2>
+  //   <p>by</p>
+  //   <p>${book.author}</p>
+  //   <p>${book.pages} pages</p>
+  //   <p><span class="btnIsRead">${ book.isRead ? "☑️ read" : "🔲 not read" }</span></p>
+  //   <span class="deleteBook">x</span>
+  // `;
+  const bookTitle = document.createElement("h2");
+  bookTitle.textContent = book.title;
+  const bookBy = document.createElement("p");
+  bookBy.textContent = "by"
+  const bookAuthor = document.createElement("p");
+  bookAuthor.textContent = book.author;
+  const bookPages = document.createElement("p");
+  bookPages.textContent = book.pages;
+  const bookIsRead = document.createElement("span");
+  bookIsRead.textContent = book.isRead ? "☑️ read" : "🔲 not read";
+  bookIsRead.classList.add("btnIsRead")
+  const paraBookIsRead = document.createElement("p")
+  paraBookIsRead.appendChild(bookIsRead)
+  const deleteBtn = document.createElement("span")
+  deleteBtn.classList.add("deleteBook")
+  deleteBtn.textContent = "x"  
+  newCard.appendChild(bookTitle)
+  newCard.appendChild(bookBy)
+  newCard.appendChild(bookAuthor)
+  newCard.appendChild(bookBy)
+  newCard.appendChild(bookPages)
+  newCard.appendChild(paraBookIsRead)
+  newCard.appendChild(deleteBtn)
+
+
+
+
   libraryEle.appendChild(newCard);
 }
 
