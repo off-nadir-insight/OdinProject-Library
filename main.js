@@ -1,5 +1,5 @@
-// import { displayLibrary } from "./js/display.js"
-import storageAvailable, { setLibary, getLibrary } from "./js/localStorage.js"
+import generateCard from "./js/generateNewCard.js"
+import storageAvailable from "./js/localStorage.js"
 
 const libraryEle = document.getElementById("library");
 const btnOpenAddBookModal = document.getElementById("btn-add-book");
@@ -88,26 +88,11 @@ function addBookToLibrary(title, author, pages, isRead) {
   displayLibrary();
 }
 
-function generateCard(idx, book) {
-  const newCard = document.createElement("div");
-  newCard.classList.add("card");
-  newCard.dataset.index = idx;
-  newCard.innerHTML = `
-    <h2>${book.title}</h2>
-    <p>by</p>
-    <p>${book.author}</p>
-    <p>${book.pages} pages</p>
-    <p><span class="btnIsRead">${ book.isRead ? "☑️ read" : "🔲 not read" }</span></p>
-    <span class="deleteBook">x</span>
-  `;
-  libraryEle.appendChild(newCard);
-}
-
 function displayLibrary() {
   libraryEle.innerHTML = "";
   
   Array.from(myLibraryArr).forEach((book, idx) => {
-    generateCard(idx, book);
+    generateCard(idx, book, libraryEle);
   })
 
   const btnDeleteBook = document.querySelectorAll(`.deleteBook`);
