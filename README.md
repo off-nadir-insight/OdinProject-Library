@@ -13,8 +13,9 @@
   - [x] add to form
 - [x] accessibility for form placeholder text?
   - [x] update placeholder text to labels in form
-- [ ] Implement localStorage
-  - [ ] Test for availability
+- [x] Implement localStorage
+  - [x] Test for availability
+- [ ] bug: can inject HTML into form
 ### Acknowledgements
 - Modal reference https://www.w3schools.com/howto/howto_css_modals.asp 
 - Local Storage https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API/Using_the_Web_Storage_API 
