@@ -10,7 +10,7 @@
 - [x] max card width
 - [x] add new field for "read" status on a book
   - [x] add ability to toggle and update state
-  - [ ] add to form
+  - [x] add to form
 - [x] accessibility for form placeholder text?
   - [x] update placeholder text to labels in form
 - [ ] Implement localStorage

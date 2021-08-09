@@ -1,5 +1,5 @@
 // import { displayLibrary } from "./js/display.js"
-import storageAvailable from "./js/localStorage.js"
+import storageAvailable, { setLibary, getLibrary } from "./js/localStorage.js"
 
 const libraryEle = document.getElementById("library");
 const btnOpenAddBookModal = document.getElementById("btn-add-book");
@@ -126,12 +126,12 @@ function displayLibrary() {
   })
 }
 
-if (storageAvailable('localStorage')) {
-  // Yippee! We can use localStorage awesomeness
-  console.log('seems like it works')
-}
-else {
-  // Too bad, no localStorage for us
-  console.log('garbage')
-}
+// if (storageAvailable('sessionStorage')) {
+//   // Yippee! We can use localStorage awesomeness
+//   console.log('seems like it works')
+// }
+// else {
+//   // Too bad, no localStorage for us
+//   console.log('garbage')
+// }
 displayLibrary();
