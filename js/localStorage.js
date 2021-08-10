@@ -23,21 +23,12 @@ export default function storageAvailable(type) {
   }
 }
 
-// export function setLibary(myLibrary) {
-//   if (storageAvailable('sessionStorage')) {
-//     sessionStorage.setItem('library', myLibrary)
-//     console.log('seems like it works')
-//   }
-//   else {
-//     console.log('storage not available')
-//   }
-// }
-
-// export function getLibrary() {
-//   if (storageAvailable('sessionStorage') && sessionStorage.getItem("library")) {
-//     return sessionStorage.getItem("library")
-//   }
-//   else {
-//     console.log("something isn't working")
-//   }
-// }
+export function setLibrary(myLibrary) {
+  if (storageAvailable("sessionStorage")) {
+    sessionStorage.setItem("library", JSON.stringify(myLibrary))
+    console.log("library saved in sessionStorage")
+  }
+  else {
+    console.log("library not saved")
+  }
+}

@@ -1,5 +1,5 @@
 import generateCard from "./js/generateNewCard.js"
-import storageAvailable from "./js/localStorage.js"
+import storageAvailable, { setLibrary } from "./js/localStorage.js"
 
 const libraryEle = document.getElementById("library");
 const btnOpenAddBookModal = document.getElementById("btn-add-book");
@@ -46,17 +46,8 @@ function clearAddBookForm() {
 
 // ----- end add-book modal -----
 
-
-function Book(title, author, pages, isRead) {
-  this.title = title;
-  this.author = author;
-  this.pages = pages;
-  this.isRead = isRead;
-}
-
 function addBookToLibrary(title, author, pages, isRead) {
-  let newBook = new Book(title, author, pages, isRead);
-  myLibraryArr.push(newBook);
+  myLibraryArr.push({title, author, pages, isRead});
   setLibrary(myLibraryArr);
   displayLibrary();
 }
@@ -100,13 +91,3 @@ if (storageAvailable("sessionStorage") && sessionStorage.getItem("library")) {
 }
 
 displayLibrary();
-
-function setLibrary(myLibrary) {
-  if (storageAvailable("sessionStorage")) {
-    sessionStorage.setItem("library", JSON.stringify(myLibrary))
-    console.log("library saved in sessionStorage")
-  }
-  else {
-    console.log("library not saved")
-  }
-}
