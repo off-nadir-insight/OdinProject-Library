@@ -10,33 +10,6 @@ const submitStatusMesg = document.getElementById("status-message");
 const btnIsRead = document.getElementById("btnIsRead");
 let myLibraryArr;
 
-// myLibraryArr = [
-//   {
-//     title: "book1",
-//     author: "author1",
-//     pages: 1234,
-//     isRead: false,
-//   },
-//   {
-//     title: "book2",
-//     author: "author2",
-//     pages: 2345,
-//     isRead: true,
-//   },
-//   {
-//     title: "Book Titles with Many Words and Extend Far Too Long",
-//     author: "Long Author Name Sr, the III",
-//     pages: 3457.8,
-//     isRead: false,
-//   },
-//   {
-//     title: "book4",
-//     author: "author4",
-//     pages: 6789,
-//     isRead: false,
-//   }
-// ];
-
 // ----- start add-book modal -----
 
 btnOpenAddBookModal.addEventListener("click", e => {
@@ -61,7 +34,7 @@ formNewBook.addEventListener("submit", e => {
   setTimeout(() => {
     submitStatusMesg.textContent = "";
   }, 1000);
-  // clearAddBookForm(); // ** disabled for testing **
+  clearAddBookForm();
 })
 
 function clearAddBookForm() {
