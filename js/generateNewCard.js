@@ -3,34 +3,24 @@ export default function generateCard(idx, book, libraryEle) {
   newCard.classList.add("card");
   newCard.dataset.index = idx;
 
-  const bookTitle = document.createElement("h2");
-  bookTitle.textContent = book.title;
-
-  const bookBy = document.createElement("p");
-  bookBy.textContent = "by"
-
-  const bookAuthor = document.createElement("p");
-  bookAuthor.textContent = book.author;
-
-  const bookPages = document.createElement("p");
-  bookPages.textContent = `${book.pages} pages`;
-
-  const bookIsRead = document.createElement("span");
-  bookIsRead.textContent = book.isRead ? "☑️ read" : "🔲 not read";
-  bookIsRead.classList.add("btnIsRead")
+  generateElement(newCard, "h2", book.title)
+  generateElement(newCard, "p", "by")
+  generateElement(newCard, "p", book.author)
+  generateElement(newCard, "p", `${book.pages} pages`)
+  generateElement(newCard, "span", `x`, "deleteBook")
+   
   const paraBookIsRead = document.createElement("p")
-  paraBookIsRead.appendChild(bookIsRead)
-
-  const deleteBtn = document.createElement("span")
-  deleteBtn.classList.add("deleteBook")
-  deleteBtn.textContent = "x"  
-  
-  newCard.appendChild(bookTitle)
-  newCard.appendChild(bookBy)
-  newCard.appendChild(bookAuthor)
-  newCard.appendChild(bookPages)
+  generateElement(paraBookIsRead, "span", book.isRead ? "☑️ read" : "🔲 not read", "btnIsRead")
   newCard.appendChild(paraBookIsRead)
-  newCard.appendChild(deleteBtn)
 
   libraryEle.appendChild(newCard);
+}
+
+function generateElement(parentEl, type, content, classList = "") {
+  const newEl = document.createElement(type);
+  newEl.textContent = content;
+  if (classList) {
+    newEl.classList.add(classList)
+  }
+  parentEl.appendChild(newEl)
 }
