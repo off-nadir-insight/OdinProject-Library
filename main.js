@@ -29,7 +29,7 @@ window.addEventListener("click", e => {
 formNewBook.addEventListener("submit", e => {
   e.preventDefault();
   const { title, author, pages, isRead } = e.target;
-  addBookToLibrary(e.target.title.value, e.target.author.value, e.target.pages.value, e.target.isRead.checked)
+  addBookToLibrary(title.value, author.value, pages.value, isRead.checked)
   submitStatusMesg.textContent = "Book submitted";
   setTimeout(() => {
     submitStatusMesg.textContent = "";
