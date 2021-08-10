@@ -7,7 +7,6 @@ const formNewBook = document.getElementById("form--new-book");
 const modalAddBook = document.getElementById("modal--add-book");
 const closeModal = document.getElementById("close-modal");
 const submitStatusMesg = document.getElementById("status-message");
-const btnIsRead = document.getElementById("btnIsRead");
 let myLibraryArr;
 
 // ----- start add-book modal -----
@@ -78,7 +77,6 @@ function displayLibrary() {
     })
   })
 }
-
 
 // load library on refresh
 if (storageAvailable("sessionStorage") && sessionStorage.getItem("library")) {
